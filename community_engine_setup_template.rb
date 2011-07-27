@@ -32,6 +32,7 @@ EOF
     ['development', 'test'].each do |env|
       environment "\nconfigatron.app_host = \"http://localhost:3000\"", :env => env
     end
+    p ask("Please enter the url where you plan to deploy this app (use 'example.com' for now if you don't know yet):")
     configatron.app_host = ask("Please enter the url where you plan to deploy this app (use 'example.com' for now if you don't know yet):")
     environment "\nconfigatron.app_host = \"http://#{configatron.app_host}\"", :env => 'production'
   end
